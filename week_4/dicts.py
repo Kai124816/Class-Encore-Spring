@@ -49,5 +49,34 @@ def most_frequent_word(sentence: str) -> str:
     >>> most_frequent_word("")
     ''
     """
+    appears_most = " "
 
 
+#problem 4
+"""
+Count Occurrences: Given a list of strings, return a dictionary mapping each unique 
+string to the number of times it appears in the list.
+"""
+def count_occurrences(li: list[str]) -> dict[str, int]:
+    """
+    >>> count_occurrences(["apple", "banana", "apple", "orange", "banana", "apple"])
+    {'apple': 3, 'banana': 2, 'orange': 1}
+    >>> count_occurrences([])
+    {}
+    """
+
+
+#problem 5
+"""
+Smallest Each: From a list of (name, value) pairs, select the pairs with the smallest
+value for each name.
+"""
+def smallest_each(li: list[tuple[str, int]]) -> list[tuple[str, int]]:
+    """
+    >>> smallest_each([("apple", 13), ("orange", 12), ("apple", 7), ("orange", 22)])
+    [('apple', 7), ('orange', 12)]
+    >>> smallest_each([])
+    []
+    >>> smallest_each([("a", 5), ("a", 3), ("b", 2)])
+    [('a', 3), ('b', 2)]
+    """

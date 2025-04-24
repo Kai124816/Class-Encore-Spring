@@ -1,3 +1,5 @@
+import doctest
+
 #Problem 1 dicts.py
 """
 Write a function word_count(sentence) that takes a string and returns a 
@@ -65,7 +67,7 @@ def most_frequent_word(sentence: str) -> str:
     """
     new_sentence = sentence.split()
     count_dict = {}
-    max_word = ' '
+    max_word = ''
     max_appearences = 0
     for word in new_sentence:
         if word not in count_dict:
@@ -78,7 +80,57 @@ def most_frequent_word(sentence: str) -> str:
             if count_dict[word] > max_appearences:
                 max_word = word
                 max_appearences = count_dict[word]
-    return count_dict
+    return max_word
+
+
+
+#problem 4 dicts.py
+"""
+Count Occurrences: Given a list of strings, return a dictionary mapping each unique 
+string to the number of times it appears in the list.
+"""
+def count_occurrences(li: list[str]) -> dict[str, int]:
+    """
+    >>> count_occurrences(["apple", "banana", "apple", "orange", "banana", "apple"])
+    {'apple': 3, 'banana': 2, 'orange': 1}
+    >>> count_occurrences([])
+    {}
+    """
+    new_dict = {}
+    for el in li:
+        if el in new_dict:
+            new_dict[el] += 1
+        else:
+            new_dict[el] = 1
+    return new_dict
+
+
+#problem 5 dicts.py
+"""
+Smallest Each: From a list of (name, value) pairs, select the pairs with the smallest
+value for each name.
+"""
+def smallest_each(li: list[tuple[str, int]]) -> list[tuple[str, int]]:
+    """
+    >>> smallest_each([("apple", 13), ("orange", 12), ("apple", 7), ("orange", 22)])
+    [('apple', 7), ('orange', 12)]
+    >>> smallest_each([])
+    []
+    >>> smallest_each([("a", 5), ("a", 3), ("b", 2)])
+    [('a', 3), ('b', 2)]
+    """
+    smallest_dict = {}
+    for pair in li:
+        if pair[0] not in smallest_dict.keys():
+            smallest_dict[pair[0]] = pair[1]
+        elif smallest_dict[pair[0]] > pair[1]:
+            smallest_dict[pair[0]] = pair[1]
+    
+    final_list = []
+    for el in smallest_dict.keys():
+        final_list.append((el,smallest_dict[el]))
+    
+    return final_list
 
 
 #problem 1 lists.py
@@ -102,26 +154,52 @@ def common_elements(list1:list, list2:list)->list:
     return combined
 
 
-#problem 2
+
+#problem 2 lists.py
 """
-Smallest Each: From a list of (name, value) pairs, select the pairs with the smallest
-value for each name.
+Return the item in li with maximum length.
+Break ties in favor of first occurrence.
 """
-def smallest_each(li: list[tuple[str, int]]) -> list[tuple[str, int]]:
+def longest_string(li: list[str]) -> str:
     """
-    >>> smallest_each([("apple", 13), ("orange", 12), ("apple", 7), ("orange", 22)])
-    [('apple', 7), ('orange', 12)]
-    >>> smallest_each([])
+    >>> longest_string(["fish", "dog", "avocado", "onion"])
+    'avocado'
+    >>> longest_string([])
+    ''
+    >>> longest_string(["winter", "spring", "summer", "fall"])
+    'winter'
+    """
+    longest = ''
+    for str in li:
+        if len(str) > len(longest):
+            longest = str
+    return longest
+
+
+#problem 3 lists.py
+"""
+Filter Greater: Return a new list containing only the elements from the input list 
+that are greater than a given threshold.
+"""
+def filter_greater(li: list[int], threshold: int) -> list[int]:
+    """
+    >>> filter_greater([1, 5, 10, 3, 7], 4)
+    [5, 10, 7]
+    >>> filter_greater([2, 3], 10)
     []
-    >>> smallest_each([("a", 5), ("a", 3), ("b", 2)])
-    [('a', 3), ('b', 2)]
+    >>> filter_greater([], 5)
+    []
     """
-    smallest_dict = {}
-    for pair in li:
-        if pair not in smallest_dict.keys():
-            smallest_dict[pair[0]] = pair[1]
-        elif smallest_dict[pair[0]] > pair[1]:
-            smallest_dict[pair[0]] = pair[1]
+    filtered = []
+    for el in li:
+        if el > threshold:
+            filtered.append(el)
+    return filtered
+
+
+if __name__ == "__main__":
+    doctest.testmod()
+
     
     
         
