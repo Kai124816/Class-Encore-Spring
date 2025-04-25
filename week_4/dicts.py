@@ -84,5 +84,5 @@ def smallest_each(li: list[tuple[str, int]]) -> list[tuple[str, int]]:
 
 #problem 6
 "Greatest Magnitude"
-def magnitude_list(cities:list[int],magnitudes:list[int])->list[list[int]]:
+def magnitude_list(cities:list[str],magnitudes:list[float])->list[list[int]]:
     return
