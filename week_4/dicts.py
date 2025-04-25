@@ -80,3 +80,9 @@ def smallest_each(li: list[tuple[str, int]]) -> list[tuple[str, int]]:
     >>> smallest_each([("a", 5), ("a", 3), ("b", 2)])
     [('a', 3), ('b', 2)]
     """
+
+
+#problem 6
+"Greatest Magnitude"
+def magnitude_list(cities:list[int],magnitudes:list[int])->list[list[int]]:
+    return
