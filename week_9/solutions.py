@@ -99,9 +99,8 @@ def nested_contains(lst:list,target:int)->bool:
         if isinstance(item, list):
             if nested_contains(item,target) == True:
                 return True
-        else:
-            if item == target:
-                return True
+        elif item == target:
+            return True
     return False
 
 
