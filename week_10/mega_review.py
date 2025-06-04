@@ -502,13 +502,13 @@ def max_sum_list(data: list[list[int]]) -> int:
     Given a list of lists of integers, return the sum of inner list that has the greatest sum.
 
     >>> max_sum_list([[1, 2, 3], [4, 5], [0], [10]]) # doctest: +SKIP
-    9
+    10
     >>> max_sum_list([[10, -5], [3, 3, 3], [6]]) # doctest: +SKIP
     9
     >>> max_sum_list([]) # doctest: +SKIP
     0
     >>> max_sum_list([[], [1], [2, -2]]) # doctest: +SKIP
-    [1]
+    1
     """
     return
 
